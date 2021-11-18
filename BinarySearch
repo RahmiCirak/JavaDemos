@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+public class TahminOyunu {
+
+    public static void main(String[] args) throws InterruptedException {
+        int max = 101;
+        int min = -1;
+        int middle;
+        int tall = 1;
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("0-100 arasında bir sayı tutun");
+        while (true) {
+            if (min + 1 == max) {
+                System.out.println("Dürüst Değilsin");
+                System.exit(0);
+            }
+
+            middle = (max + min) / 2;
+            System.out.println("Tahmininiz " + middle + " dan küçükse 'K' büyükse 'B' yazın Doğru ise 'D' yazın");
+
+            char cevap = s.nextLine().charAt(0);
+
+            switch (cevap) {
+                case 'D':
+                case 'd':
+                    System.out.println("Cevabı " + tall + " kerede buldum ");
+                    System.exit(0);
+                case 'K':
+                case 'k':
+                    tall++;
+                    max = middle;
+                    break;
+                case 'B':
+                case 'b':
+                    tall++;
+                    min = middle;
+                    break;
+                default:
+                    System.out.println("Yanlş cevap girdiniz Ceza 3sn time out ...");
+                    TimeUnit.SECONDS.sleep(3);
+                    // timeutda iken girdi alması engellenecek !!
+                    break;
+            }
+        }
+
+    }
+
+}
