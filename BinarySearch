@@ -10,25 +10,25 @@ public class TahminOyunu {
         int tall = 1;
         Scanner s = new Scanner(System.in);
 
-        System.out.println("0-100 arasında bir sayı tutun");
+        System.out.println("Keep a score between to 0-100");
         while (true) {
             if (min + 1 == max) {
-                System.out.println("Dürüst Değilsin");
+                System.out.println("You are not honest");
                 System.exit(0);
             }
-
+Thread.sleep(400);
             middle = (max + min) / 2;
-            System.out.println("Tahmininiz " + middle + " dan küçükse 'K' büyükse 'B' yazın Doğru ise 'D' yazın");
+            System.out.println("is your number =  " + middle +"\n if yours smaller than this press 'S' \nif it bigger press 'B' if it is true press 'T'");
 
-            char cevap = s.nextLine().charAt(0);
+            char reply = s.nextLine().charAt(0);
 
-            switch (cevap) {
-                case 'D':
-                case 'd':
-                    System.out.println("Cevabı " + tall + " kerede buldum ");
+            switch (reply) {
+                case 'T':
+                case 't':
+                    System.out.println("I found it " + tall + " times");
                     System.exit(0);
-                case 'K':
-                case 'k':
+                case 'S':
+                case 's':
                     tall++;
                     max = middle;
                     break;
@@ -38,9 +38,9 @@ public class TahminOyunu {
                     min = middle;
                     break;
                 default:
-                    System.out.println("Yanlş cevap girdiniz Ceza 3sn time out ...");
+                    System.out.println("Your input is wrong 3sn time out ...");
                     TimeUnit.SECONDS.sleep(3);
-                    // timeutda iken girdi alması engellenecek !!
+                    // My plan was blocking to take input but I couldn't do that if you know correct answer please text me. cirakrahmii@gmail.com 
                     break;
             }
         }
